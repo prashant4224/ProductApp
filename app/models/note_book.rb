@@ -1,0 +1,2 @@
+class NoteBook < Product
+end
