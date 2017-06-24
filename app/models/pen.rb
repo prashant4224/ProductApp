@@ -1,2 +1,3 @@
 class Pen < Product
+	
 end

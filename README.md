@@ -21,4 +21,13 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+# Run only model specs
+* bundle exec rspec spec/models
+
+# Run only specs for AccountsController
+* bundle exec rspec spec/controllers/accounts_controller_spec.rb
+
+# Run only spec on line 8 of AccountsController
+* bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
+
+

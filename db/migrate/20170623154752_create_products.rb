@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.integer :status
       t.date :inward_date
       t.string :type
-      t.string :description
+      t.text :description
 
       t.timestamps
     end

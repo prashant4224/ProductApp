@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170623154752) do
     t.integer "status"
     t.date "inward_date"
     t.string "type"
-    t.string "description"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

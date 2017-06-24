@@ -26,9 +26,9 @@
         <td><%= product.inward_date %></td>
         <td><%= product.type %></td>
         <td><%= product.description %></td>
-        <td><%= link_to 'Show', product %></td>
+        <td><%#= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,5 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'Add New Pen', new_product_path(type: "Pen") %>
+<%= link_to 'Add New NoteBook', new_product_path(type: "NoteBook") %>

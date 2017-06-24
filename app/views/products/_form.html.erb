@@ -1,4 +1,11 @@
-<%= form_with(model: product, local: true) do |form| %>
+<script type="text/javascript">
+  $( function() {
+    $( "#product_inward_date" ).datepicker({
+      dateFormat: "mm-dd-yy"    
+    });
+  } );
+</script>
+<%= form_with(model: product, local: true, url: products_url) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -21,10 +28,15 @@
     <%= form.text_field :price, id: :product_price %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color, id: :product_color %>
-  </div>
+  <% if !params["product"].blank?
+        type = params["product"]["type"]
+      if !type.blank? && type == "Pen"  %>
+      <div class="field">
+        <%= form.label :color %>
+        <%= form.select :color, ['Blue', 'Red', 'Yellow', 'Black'], id: :product_color %>
+      </div>
+    <% end 
+  end %>
 
   <div class="field">
     <%= form.label :status %>
@@ -33,17 +45,17 @@
 
   <div class="field">
     <%= form.label :inward_date %>
-    <%= form.date_select :inward_date, id: :product_inward_date %>
+    <%= form.text_field :inward_date, id: :product_inward_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type, id: :product_type %>
-  </div>
+  <!-- <div class="field"> -->
+    <%#= form.label :type %>
+    <%= form.hidden_field :type, value: params[:type] %>
+  <!-- </div> -->
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description, id: :product_description %>
+    <%= form.text_area :description, id: :product_description %>
   </div>
 
   <div class="actions">
